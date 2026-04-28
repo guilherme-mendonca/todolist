@@ -1,15 +1,16 @@
-package service;
+package todolist.service;
 
-import entity.Todo;
+import todolist.entity.Todo;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-import repository.TodoRepository;
+import todolist.repository.TodoRepository;
 
 import java.util.List;
 
 @Service // Registra esta classe como um componente de serviço do Spring
 public class TodoService {
-  private TodoRepository todoRepository;
+
+  private final TodoRepository todoRepository;
 
   // Injeção de dependência via construtor
   public TodoService(TodoRepository todoRepository) {
