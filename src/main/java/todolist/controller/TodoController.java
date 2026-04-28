@@ -1,5 +1,6 @@
 package todolist.controller;
 
+import jakarta.validation.Valid;
 import todolist.entity.Todo;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,7 +24,7 @@ public class TodoController {
   }
 
   @PostMapping // Rota para criar (POST /todos)
-  List<Todo> create(@RequestBody Todo todo) {
+  List<Todo> create(@RequestBody @Valid Todo todo) {
     return todoService.create(todo);
   }
 
@@ -33,7 +34,7 @@ public class TodoController {
   }
 
   @PutMapping // Rota para atualizar (PUT /todos)
-  List<Todo> update(Todo todo) {
+  List<Todo> update(@RequestBody Todo todo) {
     return todoService.update(todo);
   }
 
